@@ -69,6 +69,7 @@ run-tum: check-venv
 >   --scene-name $(or $(SCENE),tum_demo) \
 >   --identity-poses \
 >   --skip-cad-retrieval \
+>   --no-view \
 >   --stride $(or $(STRIDE),10) \
 >   $(if $(MAX_FRAMES),--max-frames $(MAX_FRAMES),)
 
@@ -80,6 +81,7 @@ run-euroc: check-venv
 >   --scene-name $(or $(SCENE),euroc_demo) \
 >   --identity-poses \
 >   --skip-cad-retrieval \
+>   --no-view \
 >   --stride $(or $(STRIDE),10) \
 >   $(if $(MAX_FRAMES),--max-frames $(MAX_FRAMES),)
 
@@ -91,6 +93,7 @@ run-video: check-venv
 >   --scene-name $(or $(SCENE),video_demo) \
 >   --identity-poses \
 >   --skip-cad-retrieval \
+>   --no-view \
 >   --stride $(or $(STRIDE),10) \
 >   $(if $(MAX_FRAMES),--max-frames $(MAX_FRAMES),)
 
