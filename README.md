@@ -39,7 +39,36 @@ Voir [docs/architecture.md](docs/architecture.md) pour le détail complet.
 
 Twin Engine étend l'Object-Centric SLAM avec le **retrieval CAO** et l'**export jumeau numérique**.
 
-## Installation
+## Lancement rapide (Makefile)
+
+```bash
+cd twin-engine
+
+make help          # liste toutes les commandes
+make install       # venv partagé + pip install -r requirements.txt
+make test          # tests unitaires
+make run           # pipeline scaffold (TUM, sans SLAM)
+make run-tum       # idem, dataset TUM explicite
+make run-euroc     # pipeline EuRoC
+make run-video     # pipeline vidéo MP4
+```
+
+Options via variables :
+
+```bash
+make run-tum STRIDE=5 MAX_FRAMES=100 SCENE=warehouse_demo
+```
+
+SLAM (optionnel, requiert ORB-SLAM3 compilé) :
+
+```bash
+make slam-tum      # génère output/poses.txt
+make slam-euroc
+```
+
+> **Phase 0** : `make run` affiche la configuration du pipeline ; les modules de perception ne sont pas encore implémentés. Les tests (`make test`) valident le modèle de données.
+
+## Installation manuelle
 
 ### Python (venv partagé OCS-VSLAM)
 
@@ -91,10 +120,13 @@ twin-engine/
 ## Utilisation (scaffold)
 
 ```bash
-# Afficher les options du pipeline (modules non encore implémentés)
-python scripts/run_pipeline.py --dataset tum --identity-poses
+make install && make test && make run
+```
 
-# Lancer les tests unitaires du modèle de données
+Équivalent manuel :
+
+```bash
+python scripts/run_pipeline.py --dataset tum --identity-poses --skip-cad-retrieval
 pytest tests/ -v
 ```
 
