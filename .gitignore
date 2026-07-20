@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Datasets & outputs
+data/
+output/
+*.bag
+
+# ORB-SLAM3 build artifacts
+third_party/ORB_SLAM3/build/
+third_party/ORB_SLAM3/Vocabulary/ORBvoc.txt
+
+# CAD catalog (large assets, not versioned)
+assets/cad_models/
+assets/gaussian_splats/
+
+# Model weights & indexes
+*.pt
+*.pth
+*.onnx
+*.faiss
+models/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Unity / Unreal export cache
+export/unity/
+export/unreal/
+.pytest_cache/

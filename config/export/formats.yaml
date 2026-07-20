@@ -1,0 +1,36 @@
+# Export formats for digital twin output.
+
+json:
+  enabled: true
+  filename: twin_map.json
+  schema_version: "1.0"
+  include_observations: true
+  include_cad_metadata: true
+
+gltf:
+  enabled: true
+  filename: scene.glb
+  embed_textures: false
+  include_semantic_labels: true
+  coordinate_system: y_up
+
+ifc:
+  enabled: false  # Phase 4+
+  filename: twin.ifc
+  schema: IFC4X3
+  project_name: Twin Engine Export
+
+unity:
+  enabled: false  # Phase 4+
+  output_dir: export/unity
+  package_name: DigitalTwinScene
+
+unreal:
+  enabled: false  # Phase 4+
+  output_dir: export/unreal
+  format: uasset
+
+gaussian_splat:
+  enabled: false  # Phase 3+
+  filename: background.splat
+  max_gaussians: 500000

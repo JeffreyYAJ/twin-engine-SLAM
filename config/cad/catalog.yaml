@@ -1,0 +1,79 @@
+# CAD model catalog configuration.
+# Asset files live under assets/cad_models/ (not versioned).
+
+catalog:
+  root: assets/cad_models
+  index: models/cad_index.faiss
+  metadata: models/cad_metadata.json
+  descriptor_dim: 256
+
+retrieval:
+  top_k: 5
+  min_score: 0.65
+  descriptor: pointnet2  # pointnet2 | dgcnn | fpfh
+  alignment:
+    method: icp  # icp | procrustes | hybrid
+    max_iterations: 50
+    max_correspondence_distance_m: 0.05
+    convergence_threshold: 1.0e-6
+
+categories:
+  pump:
+    models:
+      - id: pump_centrifugal_01
+        file: pump/centrifugal_01.glb
+        manufacturer: generic
+        scale: 1.0
+      - id: pump_hydraulic_01
+        file: pump/hydraulic_01.glb
+        manufacturer: generic
+        scale: 1.0
+
+  motor:
+    models:
+      - id: motor_induction_01
+        file: motor/induction_01.glb
+        manufacturer: generic
+        scale: 1.0
+
+  cabinet:
+    models:
+      - id: cabinet_electrical_01
+        file: cabinet/electrical_01.glb
+        manufacturer: generic
+        scale: 1.0
+
+  conveyor:
+    models:
+      - id: conveyor_belt_01
+        file: conveyor/belt_01.glb
+        manufacturer: generic
+        scale: 1.0
+
+  valve:
+    models:
+      - id: valve_gate_01
+        file: valve/gate_01.glb
+        manufacturer: generic
+        scale: 1.0
+
+  transformer:
+    models:
+      - id: transformer_dry_01
+        file: transformer/dry_01.glb
+        manufacturer: generic
+        scale: 1.0
+
+  pipe:
+    models:
+      - id: pipe_straight_01
+        file: pipe/straight_01.glb
+        manufacturer: generic
+        scale: 1.0
+
+  tank:
+    models:
+      - id: tank_storage_01
+        file: tank/storage_01.glb
+        manufacturer: generic
+        scale: 1.0

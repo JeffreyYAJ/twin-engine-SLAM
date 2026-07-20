@@ -1,0 +1,25 @@
+# Core pipeline
+numpy>=1.24.0
+scipy>=1.11.0
+opencv-python>=4.8.0
+pyyaml>=6.0
+tqdm>=4.66.0
+
+# Perception & 3D
+ultralytics>=8.0.0
+open3d>=0.17.0
+trimesh>=4.0.0
+
+# CAD retrieval (Phase 2+)
+# torch>=2.0.0          # décommenter pour PointNet++ / DGCNN
+# faiss-cpu>=1.7.4      # décommenter pour index vectoriel local
+
+# Reconstruction (Phase 3+)
+# nerfstudio>=1.0.0     # NeRF / 3D Gaussian Splatting
+# gsplat>=1.0.0
+
+# Export (Phase 4+)
+# pygltflib>=1.16.0
+
+# Dev & tests
+pytest>=7.4.0

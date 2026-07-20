@@ -1,0 +1,16 @@
+# EuRoC MAV monocular settings for ORB-SLAM3.
+dataset: euroc
+sequence: MH_01_easy
+
+camera:
+  fx: 458.654
+  fy: 457.296
+  cx: 367.215
+  cy: 248.375
+  width: 752
+  height: 480
+
+orb_slam3:
+  vocabulary: third_party/ORB_SLAM3/Vocabulary/ORBvoc.txt
+  settings: third_party/ORB_SLAM3/Examples/Monocular/EuRoC.yaml
+  executable: third_party/ORB_SLAM3/Examples/Monocular/mono_euroc

@@ -1,0 +1,70 @@
+# Classes sémantiques industrielles MVP.
+# Phase 1 : proxy COCO jusqu'au fine-tune YOLO-seg industriel.
+
+model:
+  default_weights: yolov8n-seg.pt
+  fine_tuned_weights: models/industrial_yolov8n_seg.pt
+  confidence: 0.45
+  iou: 0.5
+
+classes:
+  hydraulic_pump:
+    coco_labels: [fire hydrant]
+    confidence_threshold: 0.45
+    color: [0.2, 0.5, 0.9]
+    cad_category: pump
+    priority: 1
+
+  electric_motor:
+    coco_labels: [suitcase]
+    confidence_threshold: 0.40
+    color: [0.9, 0.7, 0.1]
+    cad_category: motor
+    priority: 1
+
+  electrical_cabinet:
+    coco_labels: [refrigerator]
+    confidence_threshold: 0.40
+    color: [0.6, 0.6, 0.6]
+    cad_category: cabinet
+    priority: 1
+
+  conveyor:
+    coco_labels: [bench]
+    confidence_threshold: 0.35
+    color: [0.3, 0.8, 0.4]
+    cad_category: conveyor
+    priority: 2
+
+  valve:
+    coco_labels: [stop sign]
+    confidence_threshold: 0.40
+    color: [0.9, 0.2, 0.2]
+    cad_category: valve
+    priority: 2
+
+  transformer:
+    coco_labels: [tv]
+    confidence_threshold: 0.40
+    color: [0.5, 0.3, 0.8]
+    cad_category: transformer
+    priority: 1
+
+  pipe_rack:
+    coco_labels: [dining table]
+    confidence_threshold: 0.35
+    color: [0.4, 0.4, 0.5]
+    cad_category: pipe
+    priority: 3
+
+  tank:
+    coco_labels: [toilet]
+    confidence_threshold: 0.40
+    color: [0.7, 0.7, 0.9]
+    cad_category: tank
+    priority: 2
+
+fusion:
+  cluster_distance_m: 0.6
+  min_observations: 2
+  iou_3d_threshold: 0.3

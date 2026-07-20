@@ -1,0 +1,32 @@
+# Local dataset paths — adjust for your machine.
+# Large datasets are not versioned; download separately (see README).
+
+tum:
+  freiburg1_xyz:
+    root: data/tum/rgbd_dataset_freiburg1_xyz
+    rgb: rgb
+    depth: depth
+    rgb_txt: rgb.txt
+    depth_txt: depth.txt
+    association: associations.txt
+
+euroc:
+  mav0:
+    root: data/euroc/MH_01_easy/mav0
+    cam0: cam0/data
+    imu: imu0/data.csv
+    times: cam0/data.csv
+
+video:
+  factory_walkthrough:
+    root: data/videos
+    file: factory_walkthrough.mp4
+
+# Industrial scan sessions (Phase 2+)
+scan:
+  warehouse_demo:
+    root: data/scans/warehouse_demo
+    rgb: rgb
+    depth: depth
+    poses: poses.txt
+    intrinsics: camera.yaml
