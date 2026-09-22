@@ -71,6 +71,18 @@ class CameraPose:
 
 
 @dataclass
+class Detection:
+    """2D detection with optional segmentation mask."""
+
+    class_name: str
+    coco_label: str
+    confidence: float
+    bbox_xyxy: tuple[float, float, float, float]
+    timestamp: float
+    mask: Optional[object] = None  # H×W bool numpy array
+
+
+@dataclass
 class SegmentedInstance:
     """Single detected object with optional 3D point cloud (Phase 1+)."""
 

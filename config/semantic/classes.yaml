@@ -11,6 +11,7 @@ classes:
   hydraulic_pump:
     coco_labels: [fire hydrant]
     confidence_threshold: 0.45
+    assumed_height_m: 0.8
     color: [0.2, 0.5, 0.9]
     cad_category: pump
     priority: 1
@@ -18,6 +19,7 @@ classes:
   electric_motor:
     coco_labels: [suitcase]
     confidence_threshold: 0.40
+    assumed_height_m: 0.6
     color: [0.9, 0.7, 0.1]
     cad_category: motor
     priority: 1
@@ -25,6 +27,7 @@ classes:
   electrical_cabinet:
     coco_labels: [refrigerator]
     confidence_threshold: 0.40
+    assumed_height_m: 2.0
     color: [0.6, 0.6, 0.6]
     cad_category: cabinet
     priority: 1
@@ -32,6 +35,7 @@ classes:
   conveyor:
     coco_labels: [bench]
     confidence_threshold: 0.35
+    assumed_height_m: 0.9
     color: [0.3, 0.8, 0.4]
     cad_category: conveyor
     priority: 2
@@ -39,6 +43,7 @@ classes:
   valve:
     coco_labels: [stop sign]
     confidence_threshold: 0.40
+    assumed_height_m: 0.5
     color: [0.9, 0.2, 0.2]
     cad_category: valve
     priority: 2
@@ -46,6 +51,7 @@ classes:
   transformer:
     coco_labels: [tv]
     confidence_threshold: 0.40
+    assumed_height_m: 1.2
     color: [0.5, 0.3, 0.8]
     cad_category: transformer
     priority: 1
@@ -53,6 +59,7 @@ classes:
   pipe_rack:
     coco_labels: [dining table]
     confidence_threshold: 0.35
+    assumed_height_m: 0.8
     color: [0.4, 0.4, 0.5]
     cad_category: pipe
     priority: 3
@@ -60,11 +67,12 @@ classes:
   tank:
     coco_labels: [toilet]
     confidence_threshold: 0.40
+    assumed_height_m: 1.5
     color: [0.7, 0.7, 0.9]
     cad_category: tank
     priority: 2
 
 fusion:
   cluster_distance_m: 0.6
-  min_observations: 2
+  min_observations: 1
   iou_3d_threshold: 0.3

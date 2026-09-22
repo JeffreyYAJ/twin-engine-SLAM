@@ -104,6 +104,7 @@ twin-engine/
 ├── export/                     # glTF, IFC, Unity (Phase 4+)
 ├── viz/                        # Viewer Open3D
 ├── scripts/run_pipeline.py     # Point d'entrée pipeline
+├── notebooks/colab_phase1.ipynb # Demo Google Colab
 ├── docs/architecture.md
 └── tests/
 ```
@@ -117,18 +118,35 @@ twin-engine/
 | `config/cad/catalog.yaml` | Catalogue CAO + paramètres retrieval/ICP |
 | `config/export/formats.yaml` | JSON, glTF, IFC, Unity, 3DGS |
 
-## Utilisation (scaffold)
+## Utilisation
 
 ```bash
-make install && make test && make run
+make install && make test && make run-tum MAX_FRAMES=50
+# → output/twin_map.json + output/map_snapshot.ply
 ```
 
-Équivalent manuel :
+Sans Makefile :
 
 ```bash
-python scripts/run_pipeline.py --dataset tum --identity-poses --skip-cad-retrieval
-pytest tests/ -v
+source ../.venv/bin/activate
+PYTHONPATH=. python scripts/run_pipeline.py \
+  --dataset tum \
+  --dataset-root data/tum/rgbd_dataset_freiburg1_xyz \
+  --identity-poses \
+  --skip-cad-retrieval \
+  --no-view \
+  --stride 10 \
+  --max-frames 50 \
+  --scene-name demo
 ```
+
+### Google Colab
+
+Notebook autonome : [`notebooks/colab_phase1.ipynb`](notebooks/colab_phase1.ipynb)
+
+1. Uploader le dossier `twin-engine/` sur Colab (ou cloner le repo)
+2. Ouvrir le notebook → Runtime GPU (optionnel)
+3. Exécuter les cellules : upload image → détection → projection 3D → download JSON
 
 ## Sorties prévues
 
@@ -179,8 +197,8 @@ Config : `config/semantic/classes.yaml`
 
 | Phase | Statut | Livrable |
 |-------|--------|----------|
-| **P0 — Scaffold** | ✅ En cours | Structure, config, modèle de données, docs |
-| **P1 — Perception** | 🔲 | YOLO-seg + projection 3D + twin_map.json |
+| **P0 — Scaffold** | ✅ | Structure, config, modèle de données, docs |
+| **P1 — Perception** | ✅ | YOLO-seg + projection 3D + twin_map.json |
 | **P2 — CAD Retrieval** | 🔲 | Index FAISS + alignement ICP sur 50 modèles CAO |
 | **P3 — Reconstruction** | 🔲 | 3D Gaussian Splatting sémantique (fond scène) |
 | **P4 — Export** | 🔲 | glTF + viewer Unity basique |
